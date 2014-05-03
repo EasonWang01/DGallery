@@ -22,6 +22,11 @@ header
 	font-size:20pt;
 	height:25pt;
 }
+header a
+{
+	color:white;
+	text-decoration:none;
+}
 header a:hover
 {
 	color: yellow;

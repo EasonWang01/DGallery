@@ -1,7 +1,10 @@
 <?php
-	$galleryinfo = array('title'=>'DGallery',
-						 'header'=>'DGallery Demo',
-						 'headerLink'=>'/',
-						 'footer'=>'Design by wetprogrammer',
-						 'footerLink'=>'www.wetprogrammer.net');
+	class galleryinfo
+	{
+		public $title="DGallery";
+		public $header="DGallery Demo";
+		public $headerLink="/dgallery/";
+		public $footer="Designed by song374561";
+		public $footerLink="www.wetprogrammer.net";
+	}
 ?>

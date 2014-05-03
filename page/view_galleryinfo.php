@@ -1,9 +1,21 @@
 <?php
-//	require_once('conf_all.php');
 	require_once('conf_galleryinfo.php');
 	
-	function show($item)
+	function showInfo($item)
 	{
-		print_r($galleryinfo['title']);
+		$info = new galleryinfo;
+		switch($item)
+		{
+			case 'title':
+				return $info->title;
+			case 'header':
+				return $info->header;
+			case 'footer':
+				return $info->footer;
+			case 'headerLink':
+				return $info->headerLink;
+			case 'footerLink':
+				return $info->footerLink;
+		}
 	}
 ?>
