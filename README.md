@@ -48,3 +48,5 @@ Database Info:
 
 Document:
 /doc/DGallery.pdf (zh-TW)
+Database:
+/sql/dgallery.sql
