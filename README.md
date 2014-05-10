@@ -1,7 +1,11 @@
 DGallery
 ========
 
-Develop Environment: Windows 7 with WNMP 2.0.13.0
+Develop Environment: 
+
+Windows 7 with WNMP 2.0.13.0
+
+Mac OS X with MAMP 3.0.5
 
 ---
 Default setting: 
@@ -19,37 +23,31 @@ Database Info:
   (1) dg_user: user info. 
 
     a) UID(BIGINT,20,Primary Key)
-    b) dg_urname(VARCHAR,60)
-    c) dg_urpass(VARCHAR,64)
-    d) dg_uremail(VARCHAR,100)
+    b) username(VARCHAR,60)
+    c) password(VARCHAR,64)
+    d) email(VARCHAR,100)
     e) display_name(VARCHAR,200)
 
 
-  (2) dg_albumroot: album base info. 
+  (2) dg_album: album base info. 
 
     a) AID(BIGINT,20,Primary Key)
     b) albumname(VARCHAR, 100)
-    c) albumpub(BOOL)
+    c) albumpath(VARCHAR, 500)
+    d) albuminfo(TEXT)
+    e) albumpub(BOOL)
+    f) albumpass(VARCHAR, 32)
 
+  (3) dg_pic: picture data. 
 
-  (3) dg_albumsecurity: album security setting.
-
-    a) AID(BIGINT, 20, foreign key)
-    b) dg_alname(VAR, 100)
-    c) dg_alpath(VAR, 500)
-    d) dg_alpass(VAR, 64)
-
-
-  (4) dg_albumdata: album other data
-
-    a) AID(BIGINT, 20, foreign key)
-    b) albumname(VAR, 100) 
-    c) albuminfo(TEXT)
-    d) piccount(INT)
-    
+    a) PID(BIGINT,20,Primary Key)
+    b) pAID(BIGINT, 20, Foregine Key)
+    c) picname(VARCHAR, 100)
+    d) picinfo(TEXT)
+    e) slideshow(BOOL)
 
 Document:
 /doc/DGallery.pdf (zh-TW)
 
-Database:
+Database Export:
 /sql/dgallery.sql
