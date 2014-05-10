@@ -11,39 +11,49 @@
 		<link href="system/css/global.css" type="text/css" rel="stylesheet">
 		<link href="system/css/index.css" type="text/css" rel="stylesheet">
 		<script src="system/js/jquery-1.11.0.js"></script>
+		<script>
+
+		</script>
 	</head>
 	<body>
-		<div class="debug"><pre><?php print_r($_SESSION);?></pre></div>
-		<header><a href="<?php echo(showInfo('headerLink'));?>"><?php echo(showInfo('header'));?></a></header>
+		<header>
+				<a href="<?php echo(showInfo('headerLink'));?>">
+					<?php echo(showInfo('header'));?>
+				</a>
+		</header>
 		<div id="menu">
 			<ul>
 				<li>
 					<a href="/dgallery">首頁</a>
 				</li>
 				<li>
-					<a href="<?php echo showMenu('link');?>" onclick="showForm()"><?php echo showMenu('word');?></a>
+					<a href="<?php echo(showMenu('link'));?>" onclick="showLoginForm()"><?php echo(showMenu('word'));?></a>
 				</li>
 			</ul>
+		</div>
+		<div id="slideshow">
+			<a href="javascript:void(0)" onclick="showPic"><img src="album/egpub/1.jpg"></a>
+		</div>
+		<div id="folderarea">
 		</div>
 		<footer><a href="<?php echo(showInfo('footerLink'));?>"><?php echo(showInfo('footer'));?></a></footer>
 		<?php showForm();?>
 		<div id="fancy_background" style="display:none; background-color: rgb(102, 102, 102); opacity: 0.3"></div>
+		<div id="picframes" style="display:none;"></div>
 		<script>
-			function showForm()
+			function showLoginForm()
 			{
-				if(!window.loginLeft)
+				if(!window.isShow)
 				{
-					$("#login").css('display','block');
+					$(".form").css('display','block');
 					changeFancybox();
-					loginLeft=$("#login").css('left');
-					$("#login").css('left',parseInt(loginLeft)-125+'px');
+					isShow=1;
 				}
 				else
 				{
-					$("#login").css('display','none');
+					$(".form").css('display','none');
 					changeFancybox();
-					$("#login").css('left','50%');
-					delete loginLeft;
+					delete isShow;
 				}
 			}
 			function changeFancybox()
@@ -53,6 +63,25 @@
 				else
 					$("#fancy_background").css('display','none');
 			}
+			function showFolder(aid)
+			{
+				$.ajax(
+				{
+					type: 'POST',
+					dataType: 'html',
+					data: {albumId: aid},
+					url: 'explorer.php',
+					success: function(data)
+					{
+						document.getElementById('folderarea').innerHTML=data;
+					},
+					error: function(data)
+					{
+						alert('獲取失敗');
+					},
+				});
+			}
+		$(document).ready(showFolder(0));
 		</script>
 	</body>
 </html>

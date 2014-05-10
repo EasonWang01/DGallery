@@ -2,10 +2,6 @@ body
 {
 	background-color: white;
 }
-div
-{
-	margin: 0px auto;
-}
 header, section, footer, div
 {
 	display: block;

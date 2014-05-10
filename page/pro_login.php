@@ -14,12 +14,13 @@
 		
 		$username = $mysqli->real_escape_string($username);
 		$password = $mysqli->real_escape_string($password);
+		$password = strtoupper(sha1($password));
 		
 		if ($result = $mysqli->query("SELECT password FROM `dg_user` WHERE username='".$username."'"))
 		{
 			while($row = $result->fetch_assoc())
 			{
-				if($password == $row["password"])
+				if($password === $row["password"])
 				{
 					$_SESSION['user'] = true;
 					break;

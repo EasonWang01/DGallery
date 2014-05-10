@@ -1,10 +1,16 @@
 <?php
 	require_once('pro_isLogin.php');
+	require_once('conf_loginform.php');
 	
 	function showForm()
 	{
+		$form = new form;
+		$formStringLogin = '<form class="form" action="'.$form->page.'" method="POST">'.$form->closeIcon.'<div class="formMargin">'.$form->usernameArea.$form->passwordArea.$form->loginSubmit.'</div></form>';
+		$formStringLogout = '<form class="form" action"'.$form->page.'">'.$form->closeIcon.'<div class="formMargin">'.$form->logoutMessage.$form->logoutSubmit.'</div></form>';
 		if (isLogin() === false)
-			echo('<form id="login" action="member.php" method="POST"><a href="javascript:void(0)" onclick="showForm()"><img src="system/image/closeicon.png"></a><div id="formMargin"><div class="inputLoc">帳號：<input type="text" name="username"/></div><div class="inputLoc">密碼：<input type="password" name="password"/></div><div class="inputLoc"><input class="submit" type="submit" value="登入" /></div></div></form>');
+			echo($formStringLogin);
+		else
+			echo($formStringLogout);
 	}
 		
 ?>
