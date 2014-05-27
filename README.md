@@ -24,19 +24,20 @@ Database Info:
 
     a) UID(BIGINT,20,Primary Key)
     b) username(VARCHAR,60)
-    c) password(VARCHAR,64)
+    c) password(VARCHAR,40)
     d) email(VARCHAR,100)
     e) display_name(VARCHAR,200)
-
+    f) createdate(DATE)
 
   (2) dg_album: album base info. 
 
     a) AID(BIGINT,20,Primary Key)
     b) albumname(VARCHAR, 100)
-    c) albumpath(VARCHAR, 500)
-    d) albuminfo(TEXT)
+    c) albuminfo(TEXT)
+    d) albumpath(VARCHAR, 500)
     e) albumpub(BOOL)
     f) albumpass(VARCHAR, 32)
+    g) coverPID(BIGINT, 20, Foregine Key)
 
   (3) dg_pic: picture data. 
 
@@ -44,10 +45,6 @@ Database Info:
     b) pAID(BIGINT, 20, Foregine Key)
     c) picname(VARCHAR, 100)
     d) picinfo(TEXT)
-    e) slideshow(BOOL)
-
-Document:
-/doc/DGallery.pdf (zh-TW)
 
 Database Export:
-/sql/dgallery.sql
+/sql/newdgallery.sql
