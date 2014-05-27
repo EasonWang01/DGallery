@@ -126,4 +126,26 @@
     $dbconnect->close();
     return $return;
   }
+  function p_dbms_albumpass($aid)
+  {
+    $dbinfo = new dbinfo;
+    $dbcmd = new dbcmd;
+    $dbconnect = new mysqli($dbinfo->server, $dbinfo->user, $dbinfo->pass, $dbinfo->database);
+    if ($dbconnect->connect_error)
+    {
+      die('Connect Error('.$dbconnect->connect_errorno.')'.$dbconnect->connect_error);
+    }
+    if (!$dbconnect->set_charset("utf8"))
+    {
+      printf("Error loading character set utf8: %s\n", $dbconnect->error);
+    }
+
+    if ($result = $dbconnect->query($dbcmd->albumpass($aid)))
+    {
+      $rowdata = $result->fetch_assoc();
+      $result->free();
+    }
+    $dbconnect->close();
+    return $rowdata;
+  }
 ?>

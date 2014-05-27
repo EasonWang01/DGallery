@@ -32,5 +32,9 @@
     {
       return 'SELECT PID, picname, picinfo FROM `dg_picture` WHERE pAID='.$aid;
     }
+    public function albumpass($aid)
+    {
+      return 'SELECT albumpass FROM `dg_album` WHERE AID='.$aid;
+    }
   }
 ?>

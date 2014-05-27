@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost:8889
--- 產生時間： 2014 年 05 月 23 日 05:45
+-- 產生時間： 2014 年 05 月 27 日 17:16
 -- 伺服器版本: 5.5.34
 -- PHP 版本： 5.5.10
 
@@ -38,7 +38,7 @@ CREATE TABLE `dg_album` (
 
 INSERT INTO `dg_album` (`AID`, `albumname`, `albuminfo`, `albumpath`, `albumpub`, `albumpass`, `coverPID`) VALUES
 (1, '範例相簿（公開）', '範例公開相簿', 'album/PublicEx', 1, NULL, NULL),
-(2, '範例加密相簿（公開）', '範例公開加密相簿', 'album/PublicPassEx', 1, '5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8', NULL),
+(2, '範例相簿（加密）', '範例公開加密相簿', 'album/PublicPassEx', 1, '7C46CEC1F654135DDCC38D821F0FB0B34A2E149F', NULL),
 (3, '範例相簿（私密）', '範例私密相簿', 'album/$0FA38B9ED0310A4D80EFA93E9960073C1D8CE90A', 0, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -48,13 +48,22 @@ INSERT INTO `dg_album` (`AID`, `albumname`, `albuminfo`, `albumpath`, `albumpub`
 --
 
 CREATE TABLE `dg_picture` (
-  `PID` bigint(20) unsigned NOT NULL,
+  `PID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `pAID` bigint(20) unsigned NOT NULL,
   `picname` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
   `picinfo` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`PID`),
   KEY `pAID` (`pAID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- 資料表的匯出資料 `dg_picture`
+--
+
+INSERT INTO `dg_picture` (`PID`, `pAID`, `picname`, `picinfo`) VALUES
+(1, 1, 'Craig_Deakin.jpg', '由Craig Deakin於flickr提供之開放版權相片（創用CC姓名標示）'),
+(2, 2, 'florian.schoiz.jpg', '由florian.schoiz於flickr提供之開放版權相片（創用CC姓名標示）'),
+(3, 3, 'florian.schoiz.jpg', '由florian.schoiz於flickr提供之開放版權相片（創用CC姓名標示）');
 
 -- --------------------------------------------------------
 

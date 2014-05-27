@@ -1,6 +1,6 @@
 <?php
 /* FileName: index.php
- * Latest Update: 2014.5.26
+ * Latest Update: 2014.5.27
  * Author: song374561@gmail.com
  * Usage: To show first page for visitor.
  * require:
@@ -24,6 +24,7 @@
     <script src="system/javascript/form.js"></script>
     <script src="system/javascript/fancybox.js"></script>
     <script src="system/javascript/loadIcon.js"></script>
+    <script src="system/javascript/loadLock.js"></script>
     <script type="text/javascript">
       $(document).ready(loadIcon(0));
     </script>
