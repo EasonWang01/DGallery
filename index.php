@@ -1,87 +1,50 @@
 <?php
-	require_once('page/view_galleryinfo.php');
-	require_once('page/view_menu.php');
-	require_once('page/view_form.php');
-	error_reporting(E_ALL ^ E_NOTICE);
+/* FileName: index.php
+ * Latest Update: 2014.5.26
+ * Author: song374561@gmail.com
+ * Usage: To show first page for visitor.
+ * require:
+ * * view_dginfo.php
+ * * view_menu.php
+ * * view_form.php
+ */
+?>
+<?php
+  require_once('application/view_dginfo.php');
+  require_once('application/view_menu.php');
+  require_once('application/view_form.php');
 ?>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title><?php echo(showInfo('title'));?></title>
-		<link href="system/css/global.css" type="text/css" rel="stylesheet">
-		<link href="system/css/index.css" type="text/css" rel="stylesheet">
-		<script src="system/js/jquery-1.11.0.js"></script>
-		<script>
-
-		</script>
-	</head>
-	<body>
-		<header>
-				<a href="<?php echo(showInfo('headerLink'));?>">
-					<?php echo(showInfo('header'));?>
-				</a>
-		</header>
-		<div id="menu">
-			<ul>
-				<li>
-					<a href="/dgallery">首頁</a>
-				</li>
-				<li>
-					<a href="<?php echo(showMenu('link'));?>" onclick="showLoginForm()"><?php echo(showMenu('word'));?></a>
-				</li>
-			</ul>
-		</div>
-		<div id="slideshow">
-			<a href="javascript:void(0)" onclick="showPic"><img src="album/egpub/1.jpg"></a>
-		</div>
-		<div id="folderarea">
-		</div>
-		<footer><a href="<?php echo(showInfo('footerLink'));?>"><?php echo(showInfo('footer'));?></a></footer>
-		<?php showForm();?>
-		<div id="fancy_background" style="display:none; background-color: rgb(102, 102, 102); opacity: 0.3"></div>
-		<div id="picframes" style="display:none;"></div>
-		<script>
-			function showLoginForm()
-			{
-				if(!window.isShow)
-				{
-					$(".form").css('display','block');
-					changeFancybox();
-					isShow=1;
-				}
-				else
-				{
-					$(".form").css('display','none');
-					changeFancybox();
-					delete isShow;
-				}
-			}
-			function changeFancybox()
-			{
-				if($("#fancy_background").css('display') == 'none')
-					$("#fancy_background").css('display','block');
-				else
-					$("#fancy_background").css('display','none');
-			}
-			function showFolder(aid)
-			{
-				$.ajax(
-				{
-					type: 'POST',
-					dataType: 'html',
-					data: {albumId: aid},
-					url: 'explorer.php',
-					success: function(data)
-					{
-						document.getElementById('folderarea').innerHTML=data;
-					},
-					error: function(data)
-					{
-						alert('獲取失敗');
-					},
-				});
-			}
-		$(document).ready(showFolder(0));
-		</script>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title><?php echo(v_dginfo('title'));?></title>
+    <link href="system/css/global.css" type="text/css" rel="stylesheet">
+    <link href="system/css/index.css" type="text/css" rel="stylesheet">
+    <script src="system/javascript/jquery-1.11.0.js"></script>
+    <script src="system/javascript/form.js"></script>
+    <script src="system/javascript/fancybox.js"></script>
+    <script src="system/javascript/loadIcon.js"></script>
+    <script type="text/javascript">
+      $(document).ready(loadIcon(0));
+    </script>
+  </head>
+  <body>
+    <header><a href="<?php echo(v_dginfo('headerlilnk'));?>"><?php echo(v_dginfo('header'));?></a></header>
+    <div id="menu">
+      <ul>
+        <li>
+          <?php v_menu('index');?>
+        </li>
+        <li>
+          <?php v_menu('member');?>
+        </li>
+      </ul>
+    </div>
+    <div id="picshow"></div>
+    <div id="folder"></div>
+    <footer><a href="<?php echo(v_dginfo('footerlink'));?>"><?php echo(v_dginfo('footer'));?></a></footer>
+    <div id="form"><?php v_form();?></div>
+    <div id="fancy_background" style="display:none; background-color: rgb(102, 102, 102); opacity: 0.3"></div>
+    <div id="load_bar"><img src="system/image/loader.gif"></div>
+  </body>
 </html>

@@ -5,6 +5,7 @@ body
 header, section, footer, div
 {
 	display: block;
+	z-index: 1;
 }
 header, footer
 {

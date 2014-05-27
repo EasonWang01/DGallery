@@ -44,14 +44,14 @@
 	z-index: 30;
 }
 
-#slideshow
+#picshow
 {
 	display:block;
 	margin:0px;
 	width: 100%;
 	height: 250pt;
 }
-#slideshow img
+#picshow img
 {
 	position: absolute;
 	width: 400pt;
@@ -60,56 +60,39 @@
 	margin-left:-200pt;
 }
 
-#folderarea
+#folder
 {
+	display:absolute;
 	width: 90%;
-	height: 250pt;
+	height: 600pt;
 	margin-left: 40pt;
 }
-#folderarea .fol
+#folder div
 {
 	width: 130px;
 	height: 130px;
-	font-size: 15pt;
+	font-size: 12pt;
 	float: left;
 	text-align: center;
 	margin-left: 10pt;
 	margin-right: 10pt;
+	margin-bottom: 10pt;
 }
-#folderarea .fol a
+#folder div a
 {
 	color:black;
 	text-decoration: none;
 }
-#folderarea .fol a:hover
+#folder div a:hover
 {
 	color: blue;
 }
-#folderarea .pic
-{
-	width: 130px;
-	height: 130px;
-	font-size: 15pt;
-	float: left;
-	text-align: center;
-	margin-left: 10pt;
-	margin-right: 10pt;
-}
-#folderarea .pic a
-{
-	color:black;
-	text-decoration: none;
-}
-#folderarea .pic a:hover
-{
-	color: blue;
-}
-#folderarea .pic a img
+#folder div a img
 {
 	max-width: 100%;
 	max-height: 100%;
 }
-#folderarea .back
+#folder .back
 {
 	width: 80px;
 	height: 130px;
@@ -119,30 +102,35 @@
 	margin-left: 10pt;
 	margin-right: 10pt;
 }
-#folderarea .back a
+#folder .back a
 {
 	color:black;
 	text-decoration: none;
 }
-#folderarea .back a:hover
+#folder .back a:hover
 {
 	color: blue;
 }
-#folderarea .back a img
+#folder .back a img
 {
 	max-width: 100%;
 	max-height: 100%;
-} 
-#picframes
-{
-	z-index: 999;
-	width: 95%;
-	height: 95%;
-	position: absolute;
-	top: 20%;
 }
-#picframes img
+#trash_box
 {
-	max-height: 100%;
-	max-width: 100%;
+	background-color:default;
+	display:none;
+	position:fixed;
+	bottom:0%;
+	left:100%;
+	margin-left:-128px;
+	z-index:100;
+}
+#load_bar
+{
+	display:none;
+	position:fixed;
+	left: 50%;
+	top: 20%;
+	margin-left:-110px;
 }
