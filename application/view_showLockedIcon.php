@@ -1,6 +1,6 @@
 <?php
 /* FileName: view_showLockedIcon.php
- * Latest Update: 2014.5.27
+ * Latest Update: 2014.5.31
  * Author: song374561@gmail.com
  * Usage: To get locked album picture icons.
  * require:
@@ -22,10 +22,9 @@
       if(p_checkAlbumpass($aid,$albumpass))
       {
         $pictures = p_iconPicture($aid);
-        foreach($pictures as $p)
-        {
-          echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
-        }
+        if($pictures)
+          foreach($pictures as $p)
+            echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
       }
       else
       {

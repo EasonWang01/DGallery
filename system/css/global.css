@@ -2,7 +2,7 @@ body
 {
 	background-color: white;
 }
-header, section, footer, div
+header, section, footer
 {
 	display: block;
 	z-index: 1;

@@ -1,10 +1,22 @@
-.form
+#newfolder_form
 {
 	display:none;
+}
+#login_form
+{
+	display:none;
+}
+#delfolder_form
+{
+	display:none;
+}
+.form
+{
+	color:white;
 	position: absolute;
 	z-index:9999;
 	width:250px;
-	height:170px;
+	height:200px;
 	top:20%;
 	left:50%;
 	background-color:gray;
@@ -22,16 +34,82 @@
 {
 	display:block;
 	margin-top:20px;
-	margin-left:20px;
 }
 .form .inputLoc
 {
 	display:block;
-	margin-top: 2px;
+	margin-top: 5px;
 }
 .form .inputLoc .submit
 {
 	margin-left:40%;
+}
+.form input[type='text']
+{
+	border: 1px ;
+
+	font-size: 13px;
+	padding: 5px;
+	width: 130px;
+}
+.form input[type='text']:focus
+{
+	border: 1px ;
+	font-size: 13px;
+	padding: 5px;
+	width: 130px;
+	background-color:#FEFFAF;
+}
+.form input[type='password']
+{
+	border: 1px ;
+	font-size: 13px;
+	padding: 5px;
+	width: 130px;
+}
+.form input[type='password']:focus
+{
+	border: 1px ;
+	font-size: 13px;
+	padding: 5px;
+	width: 130px;
+	background-color:#FEFFAF;
+}
+.form input[disabled]
+{
+	border: 1px ;
+	font-size: 13px;
+	padding: 5px;
+	width: 130px;
+	background-color:#bfbfbf;
+}
+.form input[type='submit']
+{
+	border:2px solid white !important;
+  text-decoration:none;
+  color:black !important;
+	background-color:white;
+}
+.form input[type='submit']:hover
+{
+	border:2px solid #73B7FF !important;
+	text-decoration:none;
+	color:black !important;
+	background-color:#73B7FF;
+}
+.form button
+{
+	border:2px solid white !important;
+	text-decoration:none;
+	color:black !important;
+	background-color:white;
+}
+.form button:hover
+{
+	border:2px solid #73B7FF !important;
+	text-decoration:none;
+	color:black !important;
+	background-color:#73B7FF;
 }
 
 #fancy_background
@@ -119,7 +197,7 @@
 #trash_box
 {
 	background-color:default;
-	display:none;
+	display:inline;
 	position:fixed;
 	bottom:0%;
 	left:100%;

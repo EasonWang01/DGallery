@@ -1,6 +1,6 @@
 <?php
 /* FileName: view_menu.php
- * Latest Update: 2014.5.15
+ * Latest Update: 2014.5.30
  * Author: song374561@gmail.com
  * Usage: To check has user logined, and show the menu.
  * require:
@@ -20,9 +20,9 @@
       break;
       case 'member':
         if (isLogin()===true)
-          echo('<a href="'.p_menu('logoutLink').'" onclick="form()">'.p_menu('logout').'</a>');
+          echo('<a href="'.p_menu('logoutLink').'" onclick="loginForm()">'.p_menu('logout').'</a>');
         else
-          echo('<a href="'.p_menu('loginLink').'" onclick="form()">'.p_menu('login').'</a>');
+          echo('<a href="'.p_menu('loginLink').'" onclick="loginForm()">'.p_menu('login').'</a>');
       break;
     }
 

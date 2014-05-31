@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost:8889
--- 產生時間： 2014 年 05 月 27 日 17:16
+-- 產生時間： 2014 年 05 月 31 日 21:15
 -- 伺服器版本: 5.5.34
 -- PHP 版本： 5.5.10
 
@@ -28,6 +28,7 @@ CREATE TABLE `dg_album` (
   `albumpub` tinyint(1) NOT NULL,
   `albumpass` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `coverPID` bigint(20) unsigned DEFAULT NULL,
+  `createdate` date NOT NULL,
   PRIMARY KEY (`AID`),
   KEY `coverPID` (`coverPID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
@@ -36,10 +37,10 @@ CREATE TABLE `dg_album` (
 -- 資料表的匯出資料 `dg_album`
 --
 
-INSERT INTO `dg_album` (`AID`, `albumname`, `albuminfo`, `albumpath`, `albumpub`, `albumpass`, `coverPID`) VALUES
-(1, '範例相簿（公開）', '範例公開相簿', 'album/PublicEx', 1, NULL, NULL),
-(2, '範例相簿（加密）', '範例公開加密相簿', 'album/PublicPassEx', 1, '7C46CEC1F654135DDCC38D821F0FB0B34A2E149F', NULL),
-(3, '範例相簿（私密）', '範例私密相簿', 'album/$0FA38B9ED0310A4D80EFA93E9960073C1D8CE90A', 0, NULL, NULL);
+INSERT INTO `dg_album` (`AID`, `albumname`, `albuminfo`, `albumpath`, `albumpub`, `albumpass`, `coverPID`, `createdate`) VALUES
+(1, '範例相簿（公開）', '範例公開相簿', 'album/PublicEx', 1, NULL, NULL, '0000-00-00'),
+(2, '範例相簿（加密）', '範例公開加密相簿', 'album/PublicPassEx', 1, '7C46CEC1F654135DDCC38D821F0FB0B34A2E149F', NULL, '0000-00-00'),
+(3, '範例相簿（私密）', '範例私密相簿', 'album/$0FA38B9ED0310A4D80EFA93E9960073C1D8CE90A', 0, NULL, NULL, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -75,6 +76,7 @@ CREATE TABLE `dg_user` (
   `UID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `emal` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `displayname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `createdate` date NOT NULL,
   PRIMARY KEY (`UID`)
@@ -84,8 +86,8 @@ CREATE TABLE `dg_user` (
 -- 資料表的匯出資料 `dg_user`
 --
 
-INSERT INTO `dg_user` (`UID`, `username`, `password`, `displayname`, `createdate`) VALUES
-(1, 'root', 'DC76E9F0C0006E8F919E0C515C66DBBA3982F785', 'Admin', '2014-05-20');
+INSERT INTO `dg_user` (`UID`, `username`, `password`, `emal`, `displayname`, `createdate`) VALUES
+(1, 'root', 'DC76E9F0C0006E8F919E0C515C66DBBA3982F785', 'root@root', 'Admin', '2014-05-20');
 
 --
 -- 已匯出資料表的限制(Constraint)

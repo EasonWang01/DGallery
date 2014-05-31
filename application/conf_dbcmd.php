@@ -36,5 +36,32 @@
     {
       return 'SELECT albumpass FROM `dg_album` WHERE AID='.$aid;
     }
+    public function checkPath($albumpath)
+    {
+      return 'SELECT AID FROM `dg_album` WHERE albumpath="'.$albumpath.'"';
+    }
+    public function newalbum($albumname, $albumpath, $albumpub, $albumpass,$date)
+    {
+      if ($albumpass === null)
+        return 'INSERT INTO `dg_album` (albumname,albumpath,albumpub,createdate) VALUES("'.$albumname.'","'.$albumpath.'","'.$albumpub.'","'.$date.'")';
+      else
+        return 'INSERT INTO `dg_album` (albumname,albumpath,albumpub,albumpass,createdate) VALUES("'.$albumname.'","'.$albumpath.'","'.$albumpub.'","'.$albumpass.'","'.$date.'")';
+    }
+    public function delalbum($aid)
+    {
+      return 'DELETE FROM `dg_album` WHERE `AID`='.$aid;
+    }
+    public function picpath($pid)
+    {
+      return 'SELECT albumpath FROM `dg_album` WHERE `AID`=(SELECT `pAID` FROM `dg_picture` WHERE `PID`="'.$pid.'")';
+    }
+    public function delpicture($pid)
+    {
+      return 'DELETE FROM `dg_picture` WHERE `PID`='.$pid;
+    }
+    public function picData($pid)
+    {
+      return 'SELECT * FROM `dg_picture` WHERE `PID`='.$pid;
+    }
   }
 ?>

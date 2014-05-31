@@ -25,12 +25,12 @@
         if ($a['albumpub'] === '1')
         {
           if ($a['albumpass'] === null)
-            echo('<div id="f'.$a['AID'].'"><a href="javascript:void(0)" onclick="loadIcon('.$a['AID'].')"><img src="system/image/folderPub.png">'.$a['albumname'].'</a></div>');
+            echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadIcon('.$a['AID'].')"><img src="system/image/folderPub.png">'.$a['albumname'].'</a></div>');
           else
-            echo('<div id="f'.$a['AID'].'"><a href="javascript:void(0)" onclick="loadLock('.$a['AID'].')"><img src="system/image/folderLock.png">'.$a['albumname'].'</a></div>');
+            echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadLock('.$a['AID'].')"><img src="system/image/folderLock.png">'.$a['albumname'].'</a></div>');
         }
         else
-          echo('<div id="f'.$a['AID'].'"><a href="javascript:void(0)" onclick="loadIcon('.$a['AID'].')"><img src="system/image/folderPri.png">'.$a['albumname'].'</a></div>');
+          echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadIcon('.$a['AID'].')"><img src="system/image/folderPri.png">'.$a['albumname'].'</a></div>');
       }
     }
     else
@@ -40,9 +40,12 @@
       if ($albumData[1] === 1)//public and no-pass album
       {
         $pictures = p_iconPicture($aid);
-        foreach($pictures as $p)
+        if ($pictures)
         {
-          echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
+          foreach($pictures as $p)
+          {
+            echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
+          }
         }
       }
       else if ($albumData[1] === 2)//public and passed album
@@ -54,8 +57,9 @@
         if (isLogin() === true)
         {
           $pictures = p_iconPicture($aid);
-          foreach($pictures as $p)
-            echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
+          if($pictures)
+            foreach($pictures as $p)
+              echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
         }
         else
         {
