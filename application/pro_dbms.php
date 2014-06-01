@@ -1,6 +1,6 @@
 <?php
 /* FileName: pro_dbms.php
- * Latest Update: 2014.5.27
+ * Latest Update: 2014.6.1
  * Author: song374561@gmail.com
  * Usage: Database Manager function system.
  * require:
@@ -129,7 +129,7 @@
     $dbconnect->close();
     return $return;
   }
-  function p_dbms_albumpass($aid)
+  /*function p_dbms_albumpass($aid)
   {
     $dbinfo = new dbinfo;
     $dbcmd = new dbcmd;
@@ -150,7 +150,7 @@
     }
     $dbconnect->close();
     return $rowdata;
-  }
+  }*/
   function p_dbms_newalbum($albumname, $albumpath, $albumpub, $albumpass)
   {
     $dbinfo = new dbinfo;
@@ -239,7 +239,6 @@
     {
       printf("Error loading character set utf8: %s\n", $dbconnect->error);
     }
-
     if ($dbconnect->query($dbcmd->delpicture($pid)));
     $dbconnect->close();
   }
@@ -267,5 +266,48 @@
     }
     $dbconnect->close();
     return $rowdata;
+  }
+  /*function p_dbms_checkpicname($picname)
+  {
+    $dbinfo = new dbinfo;
+    $dbcmd = new dbcmd;
+    $dbconnect = new mysqli($dbinfo->server, $dbinfo->user, $dbinfo->pass, $dbinfo->database);
+    if ($dbconnect->connect_error)
+    {
+      die('Connect Error('.$dbconnect->connect_errorno.')'.$dbconnect->connect_error);
+    }
+    if (!$dbconnect->set_charset("utf8"))
+    {
+      printf("Error loading character set utf8: %s\n", $dbconnect->error);
+    }
+
+    $picname = $dbconnect->real_escape_string($picname);
+    if ($result = $dbconnect->query($dbcmd->checkpicname($picname)))
+    {
+      if ($result->num_rows===0)
+        $return = 1;
+      else
+        $return = 0;
+      $result->free();
+    }
+    $dbconnect->close();
+    return $return;
+  }*/
+  function p_dbms_newpicture($aid,$filename)
+  {
+    $dbinfo = new dbinfo;
+    $dbcmd = new dbcmd;
+    $dbconnect = new mysqli($dbinfo->server, $dbinfo->user, $dbinfo->pass, $dbinfo->database);
+    if ($dbconnect->connect_error)
+    {
+      die('Connect Error('.$dbconnect->connect_errorno.')'.$dbconnect->connect_error);
+    }
+    if (!$dbconnect->set_charset("utf8"))
+    {
+      printf("Error loading character set utf8: %s\n", $dbconnect->error);
+    }
+    $filename = $dbconnect->real_escape_string($filename);
+    if($dbconnect->query($dbcmd->newpicture($aid,$filename)));
+    $dbconnect->close();
   }
 ?>

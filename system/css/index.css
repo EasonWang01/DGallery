@@ -6,7 +6,7 @@
 {
 	display:none;
 }
-#delfolder_form
+#uploadpic_form
 {
 	display:none;
 }
@@ -16,7 +16,7 @@
 	position: absolute;
 	z-index:9999;
 	width:250px;
-	height:200px;
+	height:220px;
 	top:20%;
 	left:50%;
 	background-color:gray;
@@ -24,6 +24,7 @@
 	-moz-border-radius: 40px;
 	border-radius: 40px;
 	margin-left: -125px;
+	font-size:14pt;
 }
 .form img
 {
@@ -48,7 +49,7 @@
 {
 	border: 1px ;
 
-	font-size: 13px;
+	font-size: 16px;
 	padding: 5px;
 	width: 130px;
 }
@@ -58,19 +59,20 @@
 	font-size: 13px;
 	padding: 5px;
 	width: 130px;
+	font-size:16pt;
 	background-color:#FEFFAF;
 }
 .form input[type='password']
 {
 	border: 1px ;
-	font-size: 13px;
+	font-size: 16px;
 	padding: 5px;
 	width: 130px;
 }
 .form input[type='password']:focus
 {
 	border: 1px ;
-	font-size: 13px;
+	font-size: 16pt;
 	padding: 5px;
 	width: 130px;
 	background-color:#FEFFAF;
@@ -89,6 +91,7 @@
   text-decoration:none;
   color:black !important;
 	background-color:white;
+	font-size:14pt;
 }
 .form input[type='submit']:hover
 {
@@ -97,12 +100,17 @@
 	color:black !important;
 	background-color:#73B7FF;
 }
+.form input[type='file']
+{
+	font-size:14pt;
+}
 .form button
 {
 	border:2px solid white !important;
 	text-decoration:none;
 	color:black !important;
 	background-color:white;
+	font-size:14pt;
 }
 .form button:hover
 {
@@ -142,7 +150,7 @@
 {
 	display:absolute;
 	width: 90%;
-	height: 600pt;
+	height: 230pt;
 	margin-left: 40pt;
 }
 #folder div
@@ -204,11 +212,12 @@
 	margin-left:-128px;
 	z-index:100;
 }
-#load_bar
+#new_album
 {
-	display:none;
+	display:inline;
 	position:fixed;
-	left: 50%;
-	top: 20%;
-	margin-left:-110px;
+	bottom:0%;
+	left:50%;
+	margin-left:-64px;
+	z-index:100;
 }

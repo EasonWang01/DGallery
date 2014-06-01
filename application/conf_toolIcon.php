@@ -10,5 +10,7 @@
   class toolIcon
   {
     public $trashbox = '<img src="system/image/trash_box.png">';
+    public $uploadpic = '<img src="system/image/upload.png">';
+    public $newfolder = '<img src="system/image/newfolder.png">';
   }
 ?>

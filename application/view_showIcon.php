@@ -50,7 +50,7 @@
       }
       else if ($albumData[1] === 2)//public and passed album
       {
-          echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入</a></div>');
+          echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入(locked album)</a></div>');
       }
       else if ($albumData[1] === 3)//private album
       {
@@ -63,12 +63,12 @@
         }
         else
         {
-          echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入</a></div>');
+          echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入(not login)</a></div>');
         }
       }
       else if ($albumData[1] === -1)//album not exist
       {
-        echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入</a></div>');
+        echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入('.$aid.'album not exist)</a></div>');
       }
     }
   }

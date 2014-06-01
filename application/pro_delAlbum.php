@@ -12,7 +12,7 @@
   require_once('pro_dbms.php');
   require_once('pro_rmdir.php');
 
-  function p_delAlbum($aid)
+  function p_delalbum($aid)
   {
     $data = p_dbms_albumData($aid);
     $path = $data['albumpath'];

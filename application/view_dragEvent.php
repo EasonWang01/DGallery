@@ -1,5 +1,5 @@
 <?php
-/* FileName: view_dragEvent.php
+/* FileName: view_dragevent.php
  * Latest Update: 2014.5.31
  * Author: song374561@gmail.com
  * Usage: To show first page for visitor.
@@ -8,8 +8,8 @@
  */
 ?>
 <?php
-  require_once('pro_dragEvent.php');
-  function v_dragEvent($aid)
+  require_once('pro_dragevent.php');
+  function v_dragevent($aid)
   {
     if ($aid === 'root')
     {

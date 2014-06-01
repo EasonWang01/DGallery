@@ -28,12 +28,12 @@
       }
       else
       {
-        echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入</a></div>');
+        echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入(correct password)</a></div>');
       }
     }
     else
     {
-      echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入</a></div>');
+      echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入(album type error)</a></div>');
     }
   }
 ?>

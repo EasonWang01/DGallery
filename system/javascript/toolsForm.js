@@ -21,19 +21,19 @@ function toolsForm(toolName)
       delete isShowNewfolder;
     }
   }
-  if (toolName == 'delfolder')
+  if (toolName == 'uploadPic')
   {
-    if (!window.isShowDelfolder)
+    if (!window.isShowUploadpic)
     {
-      $("#delfolder_form").css('display','block');
+      $("#uploadpic_form").css('display','block');
       fancybox(true);
-      isShowDelfolder=true;
+      isShowUploadpic=true;
     }
     else
     {
-      $("#delfolder_form").css('display','none');
+      $("#uploadpic_form").css('display','none');
       fancybox(false);
-      delete isShowDelfolder;
+      delete isShowUploadpic;
     }
   }
 

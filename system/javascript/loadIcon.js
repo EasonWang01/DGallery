@@ -1,5 +1,5 @@
 /* FileName: loadIcon.js
- * Latest Update: 2014.5.30
+ * Latest Update: 2014.6.1
  * Author: song374561@gmail.com
  * Usage: Use ajax to load picture, album icon.
  */
@@ -15,6 +15,8 @@ function loadIcon(aid)
       {
         document.getElementById('folder').innerHTML=data;
         dragEvent(aid);
+        //loadToolbar(aid);
+        dragUpload(aid);
       },
       error: function(data)
       {

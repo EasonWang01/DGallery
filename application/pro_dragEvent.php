@@ -1,5 +1,5 @@
 <?php
-/* FileName: pro_dragEvent.php
+/* FileName: pro_dragevent.php
  * Latest Update: 2014.5.31
  * Author: song374561@gmail.com
  * Usage: To show first page for visitor.
@@ -12,7 +12,7 @@
   require_once('pro_dbms.php');
   require_once('pro_isLogin.php');
 
-  function p_dragEvent($aid)
+  function p_dragevent($aid)
   {
     if ($aid === 0)
     {

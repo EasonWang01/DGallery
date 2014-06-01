@@ -6,24 +6,21 @@
 function deldata(albumdata,aid)
 {
   var id = albumdata.substring(1);
-  //alert(albumdata.charAt(0));
-  //alert(aid);
   if (albumdata.charAt(0) == 'f')
   {
     $.ajax(
       {
         type:'POST',
         dataType: 'html',
-        data:{type:'delalbum',aid:parseInt(id)},
-        url: 'DG_tools.php',
+        data:{aid:parseInt(id)},
+        url: 'DG_delalbum.php',
         success: function(data)
         {
-          loadIcon(0);
-          //document.getElementById('folder').innerHTML=data;
+          document.getElementById('folder').innerHTML=data;
         },
         error: function(data)
         {
-          document.getElementById('folder').innerHTML='<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">系統錯誤</a></div>';
+          document.getElementById('folder').innerHTML='<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">系統錯誤(delete album error)</a></div>';
         }
       });
   }
@@ -33,16 +30,15 @@ function deldata(albumdata,aid)
       {
         type:'POST',
         dataType: 'html',
-        data:{type:'delpicture',pid:parseInt(id)},
-        url: 'DG_tools.php',
+        data:{pid:parseInt(id)},
+        url: 'DG_delpicture.php',
         success: function(data)
         {
-          loadIcon(aid);
-          //document.getElementById('folder').innerHTML=data;
+          document.getElementById('folder').innerHTML=data;
         },
         error: function(data)
         {
-          document.getElementById('folder').innerHTML='<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">系統錯誤</a></div>';
+          document.getElementById('folder').innerHTML='<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">系統錯誤(delete picture error)</a></div>';
         }
       });
   }

@@ -1,5 +1,5 @@
 <?php
-/* FileName: pro_newAlbum.php
+/* FileName: pro_newalbum.php
  * Latest Update: 2014.5.30
  * Author: song374561@gmail.com
  * Usage: To Create an album.
@@ -11,7 +11,7 @@
 <?php
   require_once('pro_dbms.php');
   require_once('pro_mkdir.php');
-  function p_newAlbum($albumname, $albumset, $albumpass)
+  function p_newalbum($albumname, $albumset, $albumpass)
   {
     if ($albumset === 'public')
     {

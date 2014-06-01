@@ -1,6 +1,6 @@
 <?php
 /* FileName: pro_checkAlbumpass.php
- * Latest Update: 2014.5.27
+ * Latest Update: 2014.6.1
  * Author: song374561@gmail.com
  * Usage: Check album pass.
  * require:
@@ -12,7 +12,7 @@
 
   function p_checkAlbumpass($aid, $albumpass)
   {
-    $realpass = p_dbms_albumpass($aid);
+    $realpass = p_dbms_albumData($aid);
     if ($albumpass === $realpass['albumpass'])
       return true;
     else
