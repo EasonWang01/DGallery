@@ -17,6 +17,7 @@ function deldata(albumdata,aid)
         success: function(data)
         {
           document.getElementById('folder').innerHTML=data;
+          //alert(data);
         },
         error: function(data)
         {
@@ -34,7 +35,7 @@ function deldata(albumdata,aid)
         url: 'DG_delpicture.php',
         success: function(data)
         {
-          document.getElementById('folder').innerHTML=data;
+          loadIcon(aid,false);
         },
         error: function(data)
         {

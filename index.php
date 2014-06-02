@@ -59,9 +59,16 @@
     <script src="system/javascript/toolsForm.js"></script>
     <script src="system/javascript/deldata.js"></script>
     <script src="system/javascript/albumpassContr.js"></script>
-
     <script type="text/javascript">
-      $(document).ready(loadIcon(0));
+      function showpic(pid)
+      {
+        document.getElementById('picshow').innerHTML='<img src='+$('#sp'+pid).attr('src')+'></img>';
+      }
+
+    </script>
+    <script type="text/javascript">
+      $(document).ready(loadIcon(0,true));
+
     </script>
     <script type="text/javascript">
     function dragEvent(aid)
@@ -75,7 +82,8 @@
           success: function(data){},
           error: function(data)
           {
-            document.getElementById('folder').innerHTML='<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">系統錯誤(drag event error)</a></div>';
+            //document.getElementById('folder').innerHTML='<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">系統錯誤(drag event error)</a></div>';
+            //alert(aid);
           }
         });
       var trash_box = document.getElementById('trash_box');
@@ -128,7 +136,6 @@
 
     <div id="trash_box"><?php v_toolIcon('trashbox');?></div>
     <div id="new_album"><a href="javascript:void(0)" onclick="toolsForm('newfolder')"><?php v_toolIcon('newfolder')?></a></div>
-
 
   </body>
 </html>

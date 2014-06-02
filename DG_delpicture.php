@@ -21,7 +21,7 @@
       p_delpicture($_POST['pid']);
       $picData = p_picData($_POST['pid']);
       $aid = $picData['pAID'];
-      v_showIcon(p_picData($aid));
+      v_showIcon($aid);
     }
     else
     {

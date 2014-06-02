@@ -25,12 +25,12 @@
         if ($a['albumpub'] === '1')
         {
           if ($a['albumpass'] === null)
-            echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadIcon('.$a['AID'].')"><img src="system/image/folderPub.png">'.$a['albumname'].'</a></div>');
+            echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadIcon('.$a['AID'].',true)"><img src="system/image/folderPub.png">'.$a['albumname'].'</a></div>');
           else
-            echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadLock('.$a['AID'].')"><img src="system/image/folderLock.png">'.$a['albumname'].'</a></div>');
+            echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadLock('.$a['AID'].',true)"><img src="system/image/folderLock.png">'.$a['albumname'].'</a></div>');
         }
         else
-          echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadIcon('.$a['AID'].')"><img src="system/image/folderPri.png">'.$a['albumname'].'</a></div>');
+          echo('<div id="f'.$a['AID'].'" draggable="true"><a href="javascript:void(0)" onclick="loadIcon('.$a['AID'].',true)"><img src="system/image/folderPri.png">'.$a['albumname'].'</a></div>');
       }
     }
     else
@@ -44,7 +44,7 @@
         {
           foreach($pictures as $p)
           {
-            echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
+            echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)"><img id="sp'.$p['PID'].'" onclick="showpic('.$p['PID'].')" src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
           }
         }
       }
@@ -59,7 +59,7 @@
           $pictures = p_iconPicture($aid);
           if($pictures)
             foreach($pictures as $p)
-              echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
+              echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)"><img id="sp'.$p['PID'].'" onclick="showpic('.$p['PID'].')" src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
         }
         else
         {
@@ -68,6 +68,7 @@
       }
       else if ($albumData[1] === -1)//album not exist
       {
+        die('a');
         echo('<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">無法進入('.$aid.'album not exist)</a></div>');
       }
     }

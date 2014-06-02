@@ -24,7 +24,7 @@
         $pictures = p_iconPicture($aid);
         if($pictures)
           foreach($pictures as $p)
-            echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)" onclick="showPic('.$p['PID'].')"><img src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
+            echo('<div id="p'.$p['PID'].'"><a href="javascript:void(0)"><img id="sp'.$p['PID'].'" onclick="showpic('.$p['PID'].')" src="'.$albumData['albumpath'].'/'.$p['picname'].'">'.$p['picname'].'</a></div>');
       }
       else
       {

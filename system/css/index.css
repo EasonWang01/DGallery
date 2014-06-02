@@ -142,15 +142,14 @@
 	position: absolute;
 	width: 400pt;
 	height: 225pt;
-	left:50%;
-	margin-left:-200pt;
+	margin:0px auto;
 }
 
 #folder
 {
 	display:absolute;
 	width: 90%;
-	height: 230pt;
+	height: 280pt;
 	margin-left: 40pt;
 }
 #folder div

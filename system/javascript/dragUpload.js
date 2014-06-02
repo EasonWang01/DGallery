@@ -11,26 +11,35 @@ function dragUpload(aid)
     e.preventDefault();
     var files = e.dataTransfer.files;
     var formdata = new FormData();
-    formdata.append('type','uploadpic');
-    formdata.append('aid',aid);
-    formdata.append('file',files[0]);
-    $.ajax(
-      {
-        type:'POST',
-        data:formdata,
-        dataType:'html',
-        processData: false,
-        contentType:false,
-        url:'DG_uploader.php',
-        success: function(data)
-        {
-          document.getElementById('folder').innerHTML=data;
-        },
-        error: function(data)
-        {
-          document.getElementById('folder').innerHTML='<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">系統錯誤 (drag upload error)</a></div>';
-        }
-      });
 
+    formdata.append('aid',aid);
+    for (var i in files)
+    {
+      if (i == 'length' || i == 'item');
+      else
+      {
+        if (i >= 20)
+          break;
+        formdata.append('file',files[i]);
+        $.ajax(
+          {
+            type:'POST',
+            data:formdata,
+            dataType:'html',
+            processData: false,
+            contentType:false,
+            url:'DG_uploader.php',
+            success: function(data)
+            {
+              loadIcon(aid,false);
+            },
+            error: function(data)
+            {
+              document.getElementById('folder').innerHTML='<div id="pe"><a href="javascript:void(0)"><img src="system/image/error.png">系統錯誤 (drag upload error)</a></div>';
+            }
+          });
+      }
+    }
+    delete formdata;
   },true);
 }
